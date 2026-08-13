@@ -1,8 +1,8 @@
 /*
  * Copyright Sensors & Signals LLC https://www.snstac.com/
  *
- * Charontak Cockpit application — structured lane management for
- * /etc/charontak.ini plus service control, TLS upload, logs, and a raw editor.
+ * COTBridge Cockpit application — structured lane management for
+ * /etc/cotbridge.ini plus service control, TLS upload, logs, and a raw editor.
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -20,8 +20,8 @@ import { RawConfigCard } from './rawConfigCard';
 
 const _ = cockpit.gettext;
 
-const SERVICE_NAME = 'charontak';
-const CONFIG_FILE = '/etc/charontak.ini';
+const SERVICE_NAME = 'cotbridge';
+const CONFIG_FILE = '/etc/cotbridge.ini';
 
 export const Application: React.FC = () => {
     const [content, setContent] = useState<string | null>(null);
@@ -78,7 +78,7 @@ export const Application: React.FC = () => {
                         superuser: 'try',
                         err: 'message',
                     });
-                    setToast({ variant: 'success', title: successTitle + ' ' + _('Charontak restarted.') });
+                    setToast({ variant: 'success', title: successTitle + ' ' + _('COTBridge restarted.') });
                 } catch (e: unknown) {
                     const msg = e instanceof Error ? e.message : String(e);
                     setToast({
@@ -89,7 +89,7 @@ export const Application: React.FC = () => {
             } else {
                 setToast({
                     variant: 'success',
-                    title: successTitle + ' ' + _('Restart charontak to apply.'),
+                    title: successTitle + ' ' + _('Restart cotbridge to apply.'),
                 });
             }
         } catch (e: unknown) {
@@ -142,7 +142,7 @@ export const Application: React.FC = () => {
 
     return (
         <div data-testid="ct-app">
-            <h1>{_('Charontak')}</h1>
+            <h1>{_('COTBridge')}</h1>
             <p>
                 {_('CoT bridge between the local sensor mesh, Mesh SA multicast, and TAK Servers. Configure one lane per route.')}
             </p>
@@ -171,10 +171,10 @@ export const Application: React.FC = () => {
 
             {content !== null && (
                 <div>
-                    <div className="charontak-save-options">
+                    <div className="cotbridge-save-options">
                         <Checkbox
                             id="ct-restart-after-save"
-                            label={_('Restart charontak after each save (applies changes if the service is running)')}
+                            label={_('Restart cotbridge after each save (applies changes if the service is running)')}
                             isChecked={restartAfterSave}
                             onChange={(_ev, checked) => setRestartAfterSave(checked)}
                         />
@@ -190,10 +190,10 @@ export const Application: React.FC = () => {
                     />
 
                     <TlsUploadCard
-                        tlsDir="/etc/charontak/tls"
-                        keyUser="charontak"
+                        tlsDir="/etc/cotbridge/tls"
+                        keyUser="cotbridge"
                         testIdPrefix="ct"
-                        className="charontak-expandable-card"
+                        className="cotbridge-expandable-card"
                         intro={_('With a lane open in the editor, installed paths are filled into its TLS fields.')}
                         onToast={setToast}
                         onInstalledPaths={onTlsInstalled}

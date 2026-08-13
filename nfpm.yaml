@@ -1,6 +1,6 @@
 # nfpm config — packages the esbuild bundle from dist/.
 # Usage: make package   (or: VERSION=1.0.0 nfpm package -f nfpm.yaml -p deb -t out/)
-name: cockpit-charontak
+name: cockpit-cotbridge
 arch: all
 platform: linux
 version: ${VERSION}
@@ -9,19 +9,19 @@ section: web
 priority: optional
 maintainer: "Sensors & Signals LLC <oss@snstac.com>"
 vendor: "Sensors & Signals LLC"
-homepage: https://github.com/snstac/cockpit-charontak
+homepage: https://github.com/snstac/cockpit-cotbridge
 license: Apache-2.0
 description: |
-  Cockpit web console plugin for Charontak, the CoT bridge / TAK Server lane
+  Cockpit web console plugin for COTBridge, the CoT bridge / TAK Server lane
   manager. Structured lane editor with PyTAK CoT URL validation, service
   control, TLS certificate upload, journal output, and a raw config editor.
 
 depends:
   - cockpit-bridge
 recommends:
-  - charontak
+  - cotbridge
 
 contents:
   - src: ./dist/
-    dst: /usr/share/cockpit/charontak/
+    dst: /usr/share/cockpit/cotbridge/
     type: tree

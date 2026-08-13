@@ -39,7 +39,7 @@ function StatusOutput({ serviceName }: { serviceName: string }) {
             clearInterval(interval);
         };
     }, [serviceName]);
-    return <pre className="charontak-log-output">{statusOutput}</pre>;
+    return <pre className="cotbridge-log-output">{statusOutput}</pre>;
 }
 
 export function LogsCard({ serviceName }: { serviceName: string }) {
@@ -100,7 +100,7 @@ export function LogsCard({ serviceName }: { serviceName: string }) {
     }, []);
 
     return (
-        <Card className="charontak-expandable-card" isExpanded={expanded} data-testid="ct-logs-card">
+        <Card className="cotbridge-expandable-card" isExpanded={expanded} data-testid="ct-logs-card">
             <CardHeader
                 className="ct-card-expandable-header"
                 onExpand={() => setExpanded(!expanded)}
@@ -116,7 +116,7 @@ export function LogsCard({ serviceName }: { serviceName: string }) {
                     <CardTitle>{_('Status Output')}</CardTitle>
                     <StatusOutput serviceName={serviceName} />
                     <CardTitle>{_('Service Logs')}</CardTitle>
-                    <div className="charontak-log-actions">
+                    <div className="cotbridge-log-actions">
                         <button
                             type="button"
                             className="pf-c-button pf-m-primary"
@@ -139,7 +139,7 @@ export function LogsCard({ serviceName }: { serviceName: string }) {
                             {_('Stop Following')}
                         </button>
                     </div>
-                    <pre className="charontak-log-output">
+                    <pre className="cotbridge-log-output">
                         {logsOutput || _('No logs to display.')}
                     </pre>
                 </CardBody>

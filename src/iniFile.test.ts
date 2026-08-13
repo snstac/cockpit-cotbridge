@@ -15,11 +15,11 @@ import {
 import { addLane, applyLaneValues, listLanes, validateLaneName } from './lanes';
 
 const ARYAOS_DEFAULT = `#
-# AryaOS Charontak defaults — local feeders → mesh; TAK Server via Cockpit Charontak.
+# AryaOS COTBridge defaults — local feeders → mesh; TAK Server via Cockpit COTBridge.
 # SPDX-License-Identifier: Apache-2.0
 #
 
-[charontak]
+[cotbridge]
 DEBUG = false
 
 [lane:local-to-mesh]
@@ -35,7 +35,7 @@ mode = forward
 ingress_cot_url = udp+ro://127.0.0.1:28087
 egress_cot_url = tls://takserver.example.com:8089
 PYTAK_NO_HELLO = true
-# TLS paths / tak:// enrollment — operator fills via Cockpit Charontak
+# TLS paths / tak:// enrollment — operator fills via Cockpit COTBridge
 `;
 
 describe('parseIni / serializeIni', () => {

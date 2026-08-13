@@ -2,7 +2,7 @@
  * Copyright Sensors & Signals LLC https://www.snstac.com/
  *
  * Comment- and order-preserving INI document model, compatible with the
- * subset of Python ConfigParser that charontak uses: '[section]' headers,
+ * subset of Python ConfigParser that cotbridge uses: '[section]' headers,
  * 'key = value' / 'key: value' entries (option names case-insensitive),
  * '#'/';' full-line comments, and indented continuation lines.
  *

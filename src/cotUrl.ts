@@ -1,7 +1,7 @@
 /*
  * Copyright Sensors & Signals LLC https://www.snstac.com/
  *
- * CoT URL validation, mirroring charontak's src/charontak/config.py so the
+ * CoT URL validation, mirroring cotbridge's src/cotbridge/config.py so the
  * browser rejects exactly what the daemon would reject at startup.
  */
 
