@@ -40,7 +40,7 @@ jobs:
         run: |
           export VERSION="${GITHUB_REF_NAME#v}"
           make package
-          cp out/cockpit-charontak_*_all.deb out/cockpit-charontak_latest_all.deb
+          cp out/cockpit-cotbridge_*_all.deb out/cockpit-cotbridge_latest_all.deb
           ls -la out/
 
       - name: Release

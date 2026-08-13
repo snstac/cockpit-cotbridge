@@ -27,7 +27,7 @@ describe('parseCotUrl', () => {
     });
 });
 
-describe('validateCotUrl (mirrors charontak config.validate_cot_url)', () => {
+describe('validateCotUrl (mirrors cotbridge config.validate_cot_url)', () => {
     it('accepts tcp, udp variants, tls/ssl/tak, log and file schemes', () => {
         for (const url of [
             'tcp://127.0.0.1:8087',
@@ -120,7 +120,7 @@ describe('validateLoopbackUdpBindUrl', () => {
 });
 
 describe('truthy', () => {
-    it('matches charontak config.truthy semantics', () => {
+    it('matches cotbridge config.truthy semantics', () => {
         for (const v of ['1', 'true', 'YES', ' on '])
             expect(truthy(v)).toBe(true);
         for (const v of ['0', 'false', 'no', 'off', '', undefined, null])

@@ -1,7 +1,7 @@
 /*
  * Copyright Sensors & Signals LLC https://www.snstac.com/
  *
- * Structured editor for '[lane:*]' sections of /etc/charontak.ini.
+ * Structured editor for '[lane:*]' sections of /etc/cotbridge.ini.
  */
 
 import React, { useState } from 'react';
@@ -219,13 +219,13 @@ function Field({ id, label, help, error, children }: {
     children: React.ReactNode;
 }) {
     return (
-        <div className="charontak-field">
+        <div className="cotbridge-field">
             <label htmlFor={id}>
                 <strong>{label}</strong>
                 {help && <div>{help}</div>}
             </label>
             {children}
-            {error && <div className="charontak-field-error" role="alert">{error}</div>}
+            {error && <div className="cotbridge-field-error" role="alert">{error}</div>}
         </div>
     );
 }
@@ -236,7 +236,7 @@ export function LaneEditor({ draft, errors, onChange, onSave, onCancel, busy }: 
 
     return (
         <form
-            className="charontak-lane-editor"
+            className="cotbridge-lane-editor"
             data-testid="ct-lane-editor"
             onSubmit={ev => { ev.preventDefault(); onSave() }}
         >
@@ -300,7 +300,7 @@ export function LaneEditor({ draft, errors, onChange, onSave, onCancel, busy }: 
 
             <Field
                 id="ct-lane-nohello" label={_('Suppress hello event (PYTAK_NO_HELLO)')}
-                help={_('Recommended for bridges so charontak does not inject its own presence.')}
+                help={_('Recommended for bridges so cotbridge does not inject its own presence.')}
             >
                 <input
                     id="ct-lane-nohello" type="checkbox" checked={draft.noHello}
@@ -324,26 +324,26 @@ export function LaneEditor({ draft, errors, onChange, onSave, onCancel, busy }: 
             </Field>
 
             {laneNeedsTls(draft) && (
-                <fieldset className="charontak-tls-fieldset">
+                <fieldset className="cotbridge-tls-fieldset">
                     <legend>{_('TLS client identity (for tls:// / ssl:// / tak:// sides)')}</legend>
                     <Field id="ct-lane-tls-cert" label={_('Client certificate (PYTAK_TLS_CLIENT_CERT)')}>
                         <input
                             id="ct-lane-tls-cert" type="text" value={draft.tlsCert}
-                            placeholder="/etc/charontak/tls/client.crt"
+                            placeholder="/etc/cotbridge/tls/client.crt"
                             onChange={ev => set({ tlsCert: ev.target.value })}
                         />
                     </Field>
                     <Field id="ct-lane-tls-key" label={_('Client key (PYTAK_TLS_CLIENT_KEY)')}>
                         <input
                             id="ct-lane-tls-key" type="text" value={draft.tlsKey}
-                            placeholder="/etc/charontak/tls/client.key"
+                            placeholder="/etc/cotbridge/tls/client.key"
                             onChange={ev => set({ tlsKey: ev.target.value })}
                         />
                     </Field>
                     <Field id="ct-lane-tls-ca" label={_('CA bundle (PYTAK_TLS_CLIENT_CAFILE)')}>
                         <input
                             id="ct-lane-tls-ca" type="text" value={draft.tlsCa}
-                            placeholder="/etc/charontak/tls/ca.crt"
+                            placeholder="/etc/cotbridge/tls/ca.crt"
                             onChange={ev => set({ tlsCa: ev.target.value })}
                         />
                     </Field>
@@ -372,12 +372,12 @@ export function LaneEditor({ draft, errors, onChange, onSave, onCancel, busy }: 
             )}
 
             {draft.extraKeys.length > 0 && (
-                <p className="charontak-extra-keys">
+                <p className="cotbridge-extra-keys">
                     {_('Other keys preserved as-is:')} <code>{draft.extraKeys.join(', ')}</code>
                 </p>
             )}
 
-            <div className="charontak-lane-editor-actions">
+            <div className="cotbridge-lane-editor-actions">
                 <button type="submit" className="pf-c-button pf-m-primary" disabled={busy}>
                     {busy ? _('Saving…') : _('Save lane')}
                 </button>
@@ -441,7 +441,7 @@ export function LanesCard({ content, busy, onSaveContent, onToast, draft, setDra
     }
 
     async function deleteLane(lane: Lane) {
-        if (!window.confirm(_('Delete lane {0}? This removes its section from /etc/charontak.ini.').replace('{0}', lane.name)))
+        if (!window.confirm(_('Delete lane {0}? This removes its section from /etc/cotbridge.ini.').replace('{0}', lane.name)))
             return;
         await onSaveContent(
             deleteLaneFromContent(content, lane.sectionName),
@@ -460,23 +460,23 @@ export function LanesCard({ content, busy, onSaveContent, onToast, draft, setDra
                 </p>
 
                 {lanes.length === 0 && (
-                    <Alert variant="warning" title={_('No lanes configured — charontak will exit at startup.')} />
+                    <Alert variant="warning" title={_('No lanes configured — cotbridge will exit at startup.')} />
                 )}
 
-                <ul className="charontak-lane-list">
+                <ul className="cotbridge-lane-list">
                     {lanes.map(lane => (
-                        <li key={lane.sectionName} className="charontak-lane-row" data-testid={`ct-lane-${lane.name}`}>
-                            <div className="charontak-lane-head">
+                        <li key={lane.sectionName} className="cotbridge-lane-row" data-testid={`ct-lane-${lane.name}`}>
+                            <div className="cotbridge-lane-head">
                                 <span
-                                    className={'charontak-dot ' + (lane.enabled ? 'is-on' : 'is-off')}
+                                    className={'cotbridge-dot ' + (lane.enabled ? 'is-on' : 'is-off')}
                                     aria-hidden="true"
                                 />
                                 <strong>{lane.name}</strong>
-                                <span className="charontak-lane-mode">{lane.mode}</span>
-                                {!lane.enabled && <span className="charontak-lane-disabled">{_('disabled')}</span>}
+                                <span className="cotbridge-lane-mode">{lane.mode}</span>
+                                {!lane.enabled && <span className="cotbridge-lane-disabled">{_('disabled')}</span>}
                             </div>
-                            <code className="charontak-lane-flow">{laneFlowSummary(lane)}</code>
-                            <div className="charontak-lane-actions">
+                            <code className="cotbridge-lane-flow">{laneFlowSummary(lane)}</code>
+                            <div className="cotbridge-lane-actions">
                                 <button
                                     type="button" className="pf-c-button pf-m-secondary" disabled={busy}
                                     onClick={() => { setErrors({}); setDraft(draftFromLane(lane)) }}
@@ -490,7 +490,7 @@ export function LanesCard({ content, busy, onSaveContent, onToast, draft, setDra
                                     {lane.enabled ? _('Disable') : _('Enable')}
                                 </button>
                                 <button
-                                    type="button" className="pf-c-button pf-m-secondary charontak-danger" disabled={busy}
+                                    type="button" className="pf-c-button pf-m-secondary cotbridge-danger" disabled={busy}
                                     onClick={() => deleteLane(lane)}
                                 >
                                     {_('Delete')}

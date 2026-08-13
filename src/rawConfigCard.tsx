@@ -1,7 +1,7 @@
 /*
  * Copyright Sensors & Signals LLC https://www.snstac.com/
  *
- * Raw /etc/charontak.ini editor — the escape hatch when the structured lane
+ * Raw /etc/cotbridge.ini editor — the escape hatch when the structured lane
  * editor does not cover a key. Saves go through the same conflict-checked
  * path as structured edits.
  */
@@ -36,7 +36,7 @@ export function RawConfigCard({ configPath, content, busy, onSaveContent }: RawC
     }, [content, dirty]);
 
     return (
-        <Card className="charontak-expandable-card" isExpanded={expanded} data-testid="ct-raw-card">
+        <Card className="cotbridge-expandable-card" isExpanded={expanded} data-testid="ct-raw-card">
             <CardHeader
                 className="ct-card-expandable-header"
                 onExpand={() => setExpanded(!expanded)}
@@ -60,7 +60,7 @@ export function RawConfigCard({ configPath, content, busy, onSaveContent }: RawC
                         data-testid="ct-raw-textarea"
                         onChange={ev => { setText(ev.target.value); setDirty(true) }}
                     />
-                    <div className="charontak-lane-editor-actions">
+                    <div className="cotbridge-lane-editor-actions">
                         <button
                             type="button"
                             className="pf-c-button pf-m-primary"

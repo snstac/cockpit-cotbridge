@@ -1,18 +1,18 @@
-# cockpit-charontak — manage your CoT bridge & TAK Server lanes in the browser
+# cockpit-cotbridge — manage your CoT bridge & TAK Server lanes in the browser
 
 A [Cockpit](https://cockpit-project.org/) web console plugin for
-[Charontak](https://github.com/snstac/charontak), the **Cursor on Target (CoT) bridge**
+[COTBridge](https://github.com/snstac/cotbridge), the **Cursor on Target (CoT) bridge**
 that concentrates your sensor fleet's traffic into **one TLS session to TAK Server**
 (plus Mesh SA fan-out). Part of the TAK / ATAK / WinTAK situational-awareness stack
 for Raspberry Pi and Debian sensor gateways. No SSH required:
 
 * **Structured lane editor** — add, edit, enable/disable, and delete `[lane:*]`
-  sections of `/etc/charontak.ini` from a form, with the same CoT URL validation
+  sections of `/etc/cotbridge.ini` from a form, with the same CoT URL validation
   the daemon applies at startup (PyTAK scheme support, loopback `udp://`
   ambiguity, cross-lane UDP bind conflicts).
-* **TLS certificate upload** to `/etc/charontak/tls` (`root:charontak 0640`),
+* **TLS certificate upload** to `/etc/cotbridge/tls` (`root:cotbridge 0640`),
   with paths applied to the open lane's PyTAK TLS settings.
-* **Global defaults editor** for the `[charontak]` section.
+* **Global defaults editor** for the `[cotbridge]` section.
 * **Service control** (start/stop/restart/enable/disable), status, and journal
   tail, plus a raw config editor with save-conflict detection as the escape hatch.
 
@@ -21,7 +21,7 @@ for Raspberry Pi and Debian sensor gateways. No SSH required:
 ```sh
 sudo curl -fsSL -o /usr/share/keyrings/snstac.gpg https://snstac.github.io/packages/snstac.gpg
 sudo curl -fsSL -o /etc/apt/sources.list.d/snstac.sources https://snstac.github.io/packages/snstac.sources
-sudo apt update && sudo apt install cockpit-charontak charontak
+sudo apt update && sudo apt install cockpit-cotbridge cotbridge
 ```
 
 ## Development
@@ -32,7 +32,7 @@ React + TypeScript + PatternFly on the Cockpit starter-kit toolchain
 ```sh
 make            # fetch pkg/lib + node_modules, build dist/
 make check      # eslint, stylelint, tsc, vitest
-make devinstall # symlink dist/ into ~/.local/share/cockpit/charontak
+make devinstall # symlink dist/ into ~/.local/share/cockpit/cotbridge
 make package    # deb + rpm via nfpm (uses git describe for VERSION)
 ```
 
@@ -52,7 +52,7 @@ matching Cockpit plugin for browser-based management:
 | Radio direction finding (KrakenSDR) | [kraktak](https://github.com/snstac/kraktak) | — |
 | APRS amateur radio | [aprscot](https://github.com/snstac/aprscot) | — |
 | Weather stations | [windtak](https://github.com/snstac/windtak) | — |
-| CoT routing / TAK Server bridging | [charontak](https://github.com/snstac/charontak) | cockpit-charontak (this repo) |
+| CoT routing / TAK Server bridging | [cotbridge](https://github.com/snstac/cotbridge) | cockpit-cotbridge (this repo) |
 
 All gateways are built on [PyTAK](https://github.com/snstac/pytak), speak
 **Cursor on Target (CoT)** to **ATAK, WinTAK, iTAK, TAK Server, and Mesh SA**, ship as

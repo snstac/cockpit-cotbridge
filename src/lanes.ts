@@ -2,7 +2,7 @@
  * Copyright Sensors & Signals LLC https://www.snstac.com/
  *
  * Lane domain model on top of the INI document: list, edit, add, and remove
- * '[lane:*]' sections in /etc/charontak.ini without disturbing anything else.
+ * '[lane:*]' sections in /etc/cotbridge.ini without disturbing anything else.
  */
 
 import {
@@ -19,7 +19,7 @@ import {
 import { truthy } from './cotUrl';
 
 export const LANE_PREFIX = 'lane:';
-export const GLOBAL_SECTION = 'charontak';
+export const GLOBAL_SECTION = 'cotbridge';
 
 /** Keys the structured editor owns; everything else is preserved untouched. */
 export const LANE_EDITOR_KEYS = [
@@ -109,7 +109,7 @@ export function removeLane(doc: IniDoc, sectionName: string): boolean {
 
 /**
  * Apply editor values to a lane section. Keys with empty values are removed
- * (so lanes fall back to '[charontak]' globals), except 'enabled' and 'mode'
+ * (so lanes fall back to '[cotbridge]' globals), except 'enabled' and 'mode'
  * which are always written explicitly.
  */
 export function applyLaneValues(

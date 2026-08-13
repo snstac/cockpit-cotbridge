@@ -5,8 +5,8 @@
   },
   "tools": {
     "index": {
-      "label": "Charontak",
-      "path": "/charontak"
+      "label": "COTBridge",
+      "path": "/cotbridge"
     }
   }
 }

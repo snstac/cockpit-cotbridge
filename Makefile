@@ -1,10 +1,10 @@
-# Build the cockpit-charontak plugin bundle and packages.
+# Build the cockpit-cotbridge plugin bundle and packages.
 #
 # make          — build dist/ (fetches pkg/lib and node_modules on first run)
 # make check    — eslint + stylelint + tsc + vitest
 # make package  — deb + rpm via nfpm (requires VERSION or a git tag)
 
-PACKAGE_NAME := charontak
+PACKAGE_NAME := cotbridge
 VERSION ?= $(shell T=$$(git describe --tags 2>/dev/null | sed 's/^v//'); \
 	if [ -z "$$T" ]; then T=0; fi; echo "$$T" | tr '-' '.')
 

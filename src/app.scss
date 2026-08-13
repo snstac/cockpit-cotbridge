@@ -5,7 +5,7 @@
 @use "@snstac/cockpit-shared/src/theme.scss";
 
 /* Spacing between stacked expandable cards only — do not set overflow on the Card (breaks PF / scrolling). */
-.charontak-expandable-card {
+.cotbridge-expandable-card {
     margin-top: 1rem;
 }
 
@@ -117,7 +117,7 @@ button.pf-m-secondary {
     color: var(--aos-accent-dark) !important;
 }
 
-button.charontak-danger {
+button.cotbridge-danger {
     border-color: var(--aos-danger);
     color: var(--aos-danger) !important;
 }
@@ -168,35 +168,35 @@ pre {
 }
 
 /* Lane list */
-.charontak-lane-list {
+.cotbridge-lane-list {
     margin: 0 0 1rem;
     padding: 0;
     list-style: none;
 }
 
-.charontak-lane-row {
+.cotbridge-lane-row {
     padding: 0.9rem 0.25rem;
     border-block-end: 1px solid rgb(124 170 160 / 18%);
 }
 
-.charontak-lane-head {
+.cotbridge-lane-head {
     display: flex;
     gap: 0.6rem;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.charontak-lane-mode {
+.cotbridge-lane-mode {
     color: var(--aos-muted);
     font-size: 0.9em;
 }
 
-.charontak-lane-disabled {
+.cotbridge-lane-disabled {
     color: var(--aos-danger);
     font-size: 0.9em;
 }
 
-.charontak-dot {
+.cotbridge-dot {
     display: inline-block;
     inline-size: 0.8rem;
     block-size: 0.8rem;
@@ -204,24 +204,24 @@ pre {
     background: var(--aos-muted);
 }
 
-.charontak-dot.is-on {
+.cotbridge-dot.is-on {
     background: var(--aos-ok);
 }
 
-.charontak-dot.is-off {
+.cotbridge-dot.is-off {
     background: var(--aos-danger);
 }
 
-.charontak-lane-flow {
+.cotbridge-lane-flow {
     display: block;
     margin: 0.4rem 0 0.6rem;
     color: var(--aos-accent-dark);
     overflow-wrap: anywhere;
 }
 
-.charontak-lane-actions,
-.charontak-lane-editor-actions,
-.charontak-log-actions {
+.cotbridge-lane-actions,
+.cotbridge-lane-editor-actions,
+.cotbridge-log-actions {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
@@ -229,7 +229,7 @@ pre {
 }
 
 /* Lane editor */
-.charontak-lane-editor {
+.cotbridge-lane-editor {
     margin-top: 1rem;
     padding: 1rem;
     border: 1px solid var(--aos-border-strong);
@@ -237,43 +237,43 @@ pre {
     background: var(--aos-panel-2);
 }
 
-.charontak-lane-editor h3 {
+.cotbridge-lane-editor h3 {
     margin-top: 0;
     color: var(--aos-ink);
 }
 
-.charontak-field {
+.cotbridge-field {
     margin-block-end: 0.9rem;
 }
 
-.charontak-field label {
+.cotbridge-field label {
     display: block;
     margin-block-end: 0.3rem;
 }
 
-.charontak-field-error {
+.cotbridge-field-error {
     margin-top: 0.3rem;
     color: var(--aos-danger);
     max-width: 34rem;
 }
 
-.charontak-tls-fieldset {
+.cotbridge-tls-fieldset {
     margin-block: 1rem;
     padding: 0.75rem 1rem;
     border: 1px solid var(--aos-border);
     border-radius: 6px;
 }
 
-.charontak-tls-fieldset legend {
+.cotbridge-tls-fieldset legend {
     color: var(--aos-muted);
     padding-inline: 0.4rem;
 }
 
-.charontak-extra-keys {
+.cotbridge-extra-keys {
     font-size: 0.9em;
 }
 
-.charontak-save-options {
+.cotbridge-save-options {
     margin-block: 1rem 0.25rem;
 }
 
@@ -282,15 +282,15 @@ pre {
         padding-inline: 1rem;
     }
 
-    .charontak-expandable-card {
+    .cotbridge-expandable-card {
         margin-inline: -0.25rem;
     }
 
     .pf-v6-l-flex,
     .pf-c-form__actions,
-    .charontak-lane-actions,
-    .charontak-lane-editor-actions,
-    .charontak-log-actions {
+    .cotbridge-lane-actions,
+    .cotbridge-lane-editor-actions,
+    .cotbridge-log-actions {
         flex-wrap: wrap;
     }
 

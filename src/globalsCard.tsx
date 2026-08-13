@@ -1,7 +1,7 @@
 /*
  * Copyright Sensors & Signals LLC https://www.snstac.com/
  *
- * Editor for the '[charontak]' global section — defaults inherited by lanes.
+ * Editor for the '[cotbridge]' global section — defaults inherited by lanes.
  */
 
 import React, { useEffect, useState } from 'react';
@@ -128,7 +128,7 @@ export function GlobalsCard({ content, busy, onSaveContent, onToast }: GlobalsCa
     }
 
     return (
-        <Card className="charontak-expandable-card" isExpanded={expanded} data-testid="ct-globals-card">
+        <Card className="cotbridge-expandable-card" isExpanded={expanded} data-testid="ct-globals-card">
             <CardHeader
                 className="ct-card-expandable-header"
                 onExpand={() => setExpanded(!expanded)}
@@ -137,13 +137,13 @@ export function GlobalsCard({ content, busy, onSaveContent, onToast }: GlobalsCa
                     'aria-label': expanded ? _('Collapse global defaults') : _('Expand global defaults'),
                 }}
             >
-                <CardTitle>{_('Global defaults ([charontak] section)')}</CardTitle>
+                <CardTitle>{_('Global defaults ([cotbridge] section)')}</CardTitle>
             </CardHeader>
             <CardExpandableContent>
                 <CardBody>
-                    <p>{_('Values here are inherited by every lane unless the lane overrides them. Blank = charontak/PyTAK default.')}</p>
+                    <p>{_('Values here are inherited by every lane unless the lane overrides them. Blank = cotbridge/PyTAK default.')}</p>
                     {GLOBAL_DEFS.map(def => (
-                        <div className="charontak-field" key={def.key}>
+                        <div className="cotbridge-field" key={def.key}>
                             <label htmlFor={`ct-global-${def.key}`}>
                                 <strong>{def.label}</strong>
                                 <div>{def.help}</div>
